@@ -1,0 +1,135 @@
+/* =========================================================
+   style.css  —  the look of EVERY page on the site
+   ---------------------------------------------------------
+   Change something here and it changes on all four pages.
+   Easiest things to customize are the COLORS just below.
+   ========================================================= */
+
+/* ---------- 1. COLORS & FONTS (edit these freely) ---------- */
+:root {
+  --navy:       #1f3a5f;   /* header, headings, buttons            */
+  --accent:     #2e8b57;   /* links and highlights (golf green)    */
+  --background: #f6f7f9;   /* page background                      */
+  --card:       #ffffff;   /* white boxes that hold content        */
+  --text:       #2b2f36;   /* normal paragraph text                */
+  --muted:      #6b7280;   /* lighter gray text (dates, captions)  */
+  --border:     #e3e6ea;   /* thin lines around boxes              */
+  --font:       "Source Sans 3", "Segoe UI", Arial, sans-serif;
+  --heading-font: "Merriweather", Georgia, serif;
+}
+
+/* ---------- 2. BASIC PAGE SETUP ---------- */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--background);
+}
+
+h1, h2, h3 { font-family: var(--heading-font); color: var(--navy); line-height: 1.3; }
+h1 { font-size: 2.1rem; margin: 0 0 .5rem; }
+h2 { font-size: 1.45rem; margin: 2rem 0 .6rem; }
+h3 { font-size: 1.15rem; margin: 1.2rem 0 .2rem; }
+
+a { color: var(--accent); }
+img { max-width: 100%; display: block; }
+
+/* Keeps content from stretching too wide on big screens */
+.container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+/* ---------- 3. TOP NAVIGATION BAR ---------- */
+.site-header { background: var(--navy); color: #fff; }
+
+.site-header .container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.logo { color: #fff; font-family: var(--heading-font); font-size: 1.25rem; text-decoration: none; font-weight: 700; }
+
+.nav { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; margin: 0; padding: 0; }
+
+.nav a {
+  color: #dbe4ef;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+.nav a:hover { background: rgba(255,255,255,.12); color: #fff; }
+
+/* The page you're currently on gets class="active" in its HTML */
+.nav a.active { background: #fff; color: var(--navy); font-weight: 600; }
+
+/* ---------- 4. PAGE BANNER (top section of each page) ---------- */
+.banner { background: #e9eef5; border-bottom: 1px solid var(--border); padding: 44px 0 36px; }
+.banner p { font-size: 1.15rem; color: var(--muted); margin: 0; max-width: 680px; }
+
+/* Home page banner: photo on one side, text on the other */
+.hero { display: flex; align-items: center; gap: 36px; flex-wrap: wrap; }
+.hero img {
+  width: 200px; height: 200px; object-fit: cover;
+  border-radius: 50%; border: 5px solid #fff;
+  box-shadow: 0 4px 14px rgba(0,0,0,.12);
+}
+.hero-text { flex: 1; min-width: 260px; }
+
+/* ---------- 5. CONTENT BOXES ---------- */
+main { padding: 20px 0 50px; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 26px 30px;
+  margin: 24px 0;
+}
+.card h2:first-child { margin-top: 0; }
+
+/* Two or three boxes side by side (stack on phones) */
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+.grid .card { margin: 0; }
+
+/* Buttons */
+.button {
+  display: inline-block; background: var(--navy); color: #fff;
+  padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 600; margin: 6px 8px 0 0;
+}
+.button:hover { background: var(--accent); }
+
+/* ---------- 6. RESUME STYLES ---------- */
+.job { border-left: 3px solid var(--accent); padding-left: 16px; margin: 18px 0; }
+.job h3 { margin: 0; }
+.job .meta { color: var(--muted); font-size: .95rem; margin-bottom: 4px; }
+.skills { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; }
+.skills li { background: #e9eef5; color: var(--navy); padding: 4px 12px; border-radius: 20px; font-size: .95rem; }
+
+/* ---------- 7. PHOTOS WITH CAPTIONS ---------- */
+figure { margin: 0; }
+figure img { width: 100%; height: 230px; object-fit: cover; border-radius: 8px; }
+figcaption { color: var(--muted); font-size: .9rem; margin-top: 6px; }
+
+/* Yellow "fill this in" highlight. Delete the class once you've edited the text. */
+.edit-me { background: #fff3b0; padding: 0 4px; border-radius: 3px; }
+
+/* ---------- 8. FOOTER (bottom of every page) ---------- */
+.site-footer { background: var(--navy); color: #c9d4e3; text-align: center; padding: 22px 0; font-size: .95rem; }
+.site-footer a { color: #fff; }
+
+/* ---------- 9. PHONE SCREENS ---------- */
+@media (max-width: 600px) {
+  body { font-size: 17px; }
+  h1 { font-size: 1.7rem; }
+  .card { padding: 20px; }
+  .hero { justify-content: center; text-align: center; }
+  .hero img { width: 160px; height: 160px; }
+}
